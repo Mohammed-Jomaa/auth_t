@@ -1,0 +1,34 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All Users</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <td> UserName </td>
+            <td> Password </td>
+            <td> Created At</td>
+            <td>Action</td>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.UserName</td>
+                    <td>@item.Password</td>
+                    <td>@item.CreatedAT</td>
+                    <td><a class="btn btn-primary" asp-controller="Users" asp-action="Active" asp-route-id="@item.UserId">@item.IsActive</a></td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
+
